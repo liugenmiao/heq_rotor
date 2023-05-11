@@ -1003,6 +1003,17 @@ MavlinkMissionManager::handle_mission_item_both(const mavlink_message_t *msg)
 	mavlink_mission_item_t wp;
 	mavlink_msg_mission_item_decode(msg, &wp);
 
+	/*printf("misson:%10.7f %10.7f %10.7f %10.7f %10.7f %10.7f %10.7f %d %d\r\n",
+			(double)wp.param1,
+			(double)wp.param2,
+			(double)wp.param3,
+			(double)wp.param4,
+			(double)wp.x,
+			(double)wp.y,
+			(double)wp.z,
+			wp.seq,
+			wp.command
+			);*/
 	if (CHECK_SYSID_COMPID_MISSION(wp)) {
 
 		if (wp.mission_type != _mission_type) {
